@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     'modelcluster',
     'taggit',
+    'django_mobile',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -52,7 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -61,6 +62,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+
+    'django_mobile.middleware.MobileDetectionMiddleware',
+    'django_mobile.middleware.SetFlavourMiddleware',
 
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
@@ -81,9 +85,17 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_mobile.context_processors.flavour',
+
             ],
         },
     },
+]
+
+TEMPLATE_LOADERS = [
+    'django_mobile.loader.Loader',
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
