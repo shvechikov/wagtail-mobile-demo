@@ -1,0 +1,35 @@
+#### joe made this: https://goel.io/joe
+
+# Database
+/mysite/db.sqlite3
+
+# js/css dependencies
+/node_modules/
+/static/bower_components/
+
+
+#####=== Vim ===#####
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+#####=== Python ===#####
+# Local virtual environment
+/.env/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Django stuff:
+*.log
+
+# MacOS
+.DS_Store
